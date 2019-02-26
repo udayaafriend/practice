@@ -1,0 +1,45 @@
+<div class="row">
+    <!-- <div class="col-md-12"><button type="button" data-toggle="modal" data-target="#exampleModal" [routerLink]="['create-employee']" class="btn btn-primary pull-right">Add Employee</button></div> -->
+  </div>
+<div class="card" *ngFor="let employee of employeesList">
+
+  <div class="card-header">
+    <h4 class="card-title">{{employee.name}} <span class="pull-right"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></span></h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md"><img [src]="employee.photoPath" class="img-thumbnail" /></div>
+      <div class="col-md">
+        <div class="row">
+          <div class="col-sm">Gender</div>
+          <div class="col-sm">{{employee.gender}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm">Date of Birth</div>
+          <div class="col-sm">{{employee.dateOfBirth}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm">Contact Preference</div>
+          <div class="col-sm">{{employee.contactPreference}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm">Phone</div>
+          <div class="col-sm">{{employee.phoneNumber}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm">Department</div>
+          <div class="col-sm">{{employee.department}}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm">Is Active</div>
+          <div class="col-sm">{{employee.isActive}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>

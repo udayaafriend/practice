@@ -1,0 +1,38 @@
+<div class="card">
+  <form class="form-horizontal" [formGroup]="CreateEmployeeForm" (ngSubmit)="onSubmit(CreateEmployeeForm.value)">
+
+    <div class="card-header">
+      <h4 class="card-title">{{CreateEmployeeTitle}}</h4>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+       <label for="GenderType">Gender</label><br>
+        <label class="radio" *ngFor="let gender of GenderType"><input type="radio" name="GenderType"
+            formControlName="GenderType" [value]="gender.id">{{gender.name}}&nbsp;&nbsp;</label>
+      </div>
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" formControlName="DateofBirth" class="form-control clender">
+      </div>
+      <div class="form-group">
+       <label class="radio" name="ContactPreference">Contact Preference</label><br>
+        <label class="radio-inline" *ngFor="let contpre of ContactPreference"><input type="radio" name="ContactPreference"
+            formControlName="ContactPreference" [value]="contpre.id" checked>{{contpre.name}}&nbsp;&nbsp;</label>
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" class="form-control" formGroupName="Phone">
+      </div>
+      <div class="form-group">
+        <label >Department</label>
+        <select class="form-control" name="Department" id="Department" formControlName="Department">
+          <option *ngFor="let dept of Department" [value]="dept.id">{{dept.name}}</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="card-footer text-right">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>

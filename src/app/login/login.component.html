@@ -1,0 +1,33 @@
+<div class="row">
+<div class="col-md">
+  <form [formGroup]="loginFrom" (ngSubmit)="onSubmit(loginFrom.value)" class="form-horizontal">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">{{loginTitle}}</h3>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label >Username</label>
+          <input type="text" class="form-control" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password">
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-md">Login</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="col-md" *ngIf="loginFormObj">
+ <div class="card">
+   <div class="card-header"> <h3 class="card-title">{{loginResults}}</h3></div>
+   <div class="card-body"> <table>
+      <tr><td>Username</td><td>{{loginFormObj.username}}</td></tr>
+      <tr><td>Password</td><td>{{loginFormObj.password}}</td></tr>
+    </table></div>
+ </div>
+ 
+

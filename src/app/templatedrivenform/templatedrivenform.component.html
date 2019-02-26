@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="col-md">
+    <div class="card">
+   <div class="card-header"><h3 class="card-title">{{templateDrivenLoginFormTitle}}</h3></div>
+   <div class="card-body">
+     <form class="form-horizontal" #frm="ngForm" (ngSubmit)="onSubmit(frm.value)">
+       <div class="form-group">
+         <label>Username</label>
+         <input type="text" class="form-control" name="username" #nameUser="ngModel" id="username" required ngModel />
+         <!-- <div *ngIf="nameUser.errors?.touched" class="alert alert-danger">
+          <div *ngIf="nameUser.errors?.required" class="alert alert-danger"> Username is Required</div> 
+         </div> -->
+        </div>
+        <div class="form-group">
+         <label>email</label>
+         <input type="email" class="form-control" name="email" #userEmail="ngModel" id="email" required ngModel />
+         <!-- <div *ngIf="userEmail.errors?.touched" class="alert alert-danger">
+            <div *ngIf="userEmail.errors?.required" class="alert alert-danger"> Email is Required</div> 
+           </div> -->
+        </div> 
+           <div class="form-group">
+         <label>Mobile</label>
+         <input type="tel" class="form-control" name="mobile" #userMobile="ngModel" id="mobile" required ngModel />
+         <!-- <div *ngIf="userMobile.errors?.touched" class="alert alert-danger">
+            <div *ngIf="userMobile.errors?.required" class="alert alert-danger"> Mobile is Required</div> 
+           </div> -->
+        </div>          
+     </form>
+   </div>
+   <div class="card-footer">
+     <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Login</button>
+   </div>
+   {{frm.value| json}}
+    </div>
+  </div>
+  <div class="col-md">
+      <div class="card">
+          <div class="card-header"></div>
+          <div class="card-body"></div>
+          <div class="card-footer"></div>
+           </div>
+  </div>
+</div>

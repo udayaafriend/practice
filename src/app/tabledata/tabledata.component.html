@@ -1,0 +1,22 @@
+
+<table class="table border" border="1" width="100%">
+  <thead class="thead-light">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Designation</th>
+      <th>Blood Group</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of dataTable">
+      <td>{{data.id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.designation}}</td>
+      <td>{{data.bloodgroup}}</td>
+      <td>{{data.phone}}</td>
+    </tr>
+  </tbody>
+</table>
+

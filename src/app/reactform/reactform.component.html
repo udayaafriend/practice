@@ -1,0 +1,135 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md">
+      <form class="form-horizontal">
+        <div class="card">
+          <form class="form-horizontal" [formGroup]="ReactiveForm" (ngSubmit)="onSubmit(ReactiveForm.value)">
+            <div class="card-header">
+              <h3 class="card-title">{{ReactiveFormTitle}}</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label class="label-block" for="email">Email ID</label>
+                <input type="email" class="form-control" formControlName="emailid" />
+              </div>
+              <div class="form-group">
+                <label class="label-block" for="password">Password</label>
+                <input type="password" class="form-control" formControlName="password" />
+              </div>
+
+            </div>
+            <div class="card-footer"><button type="submit" class="btn btn-primary">Submit</button></div>
+          </form>
+          <table class="table border" *ngIf="ReactiveFormObj" rules="all">
+            <tr>
+              <td>UserName</td>
+              <td>{{ReactiveFormObj.emailid}}</td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td>{{ReactiveFormObj.password}}</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+    </div>
+    <div class="col-md">
+      <form class="form-horizontal" [formGroup]="ReactiveSignUpForm" (ngSubmit)="onSubmit(ReactiveSignUpForm.value)">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">{{ReactiveFormSignUptitle}}</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-group">
+                  <label class="label-block">First Name</label>
+                  <input type="text" class="form-control" formControlName="firstname" />
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label class="label-block">Last Name</label>
+                  <input type="text" class="form-control" formControlName="lastname" />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="lable-block">Gender</label><br>
+              <label *ngFor="let gender of genderArray"><input type="radio" formControlName="genderType" [value]="gender.id" />{{gender.name}}</label>
+            </div>
+            <div class="form-group"><label for="education">Education</label>
+              <select class="form-control" name="education" id="education" formControlName="education">
+                <option *ngFor="let edu of education" [value]="edu.id">{{edu.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="label-block">House Address</label>
+              <textarea class="form-control" name="houseaddress" id="houseaddress" formControlName="houseaddress" value="House Address"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="label-block">Street Name</label>
+              <input type="text" class="form-control" formControlName="street" />
+            </div>
+            <div class="form-group">
+              <label class="label-block">State</label>
+              <select class="form-control" formControlName="state">
+                <option *ngFor="let s of state" [value]="s.id">{{s.name}}</option>
+              </select>
+            </div>
+            <div formGroupName="address">
+              <div class="form-group">
+                <label class="label-block">City</label>
+                <input type="text" class="form-control" formControlName="city" />
+              </div>
+              <div class="form-group">
+                <label class="label-block">Zip</label>
+                <input type="number" class="form-control" formControlName="zip" />
+              </div>
+            </div>
+          </div>
+          <div class="card-footer"><button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+            <button type="reset" class="btn btn-danger" (click)="onClear()">Reset</button></div>
+          <table class="table border" *ngIf="ReactiveSignUpFormObj">
+            <tr>
+              <td>First Name</td>
+              <td>{{ReactiveSignUpFormObj.firstname}}</td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td>{{ReactiveSignUpFormObj.lastname}}</td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>{{ReactiveSignUpFormObj.genderType}}</td>
+            </tr>
+            <tr>
+              <td>Education</td>
+              <td>{{ReactiveSignUpFormObj.education}}</td>
+            </tr>
+            <tr>
+              <td>House Address</td>
+              <td>{{ReactiveSignUpFormObj.houseaddress}}</td>
+            </tr>
+            <tr>
+              <td>Street</td>
+              <td>{{ReactiveSignUpFormObj.street}}</td>
+            </tr>
+            <tr>
+              <td>City</td>
+              <td>{{ReactiveSignUpFormObj.city}}</td>
+            </tr>
+            <tr>
+              <td>State</td>
+              <td>{{ReactiveSignUpFormObj.state}}</td>
+            </tr>
+            <tr>
+              <td>zip</td>
+              <td>{{ReactiveSignUpFormObj.zip}}</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)" class="form-horizontal">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">{{signuptitle}}</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-group">
+                  <label class="label-block">First Name</label>
+                  <input type="text" id="firstname" formControlName="firstname" class="form-control" />
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label class="label-block">Last Name</label>
+                  <input type="text" id="lastname" formControlName="lastname" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="email" formControlName="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="label-block">Education</label>
+              <select class="form-control" id="education" formControlName="education">
+                <option>Post Graduation</option>
+                <option>Graduation</option>
+              </select>
+            </div>
+            <div class="form-group">
+             <label class="label-block">Gender</label>   
+             <label class="radio-inline">
+               <input type="radio" name="gender"  value="male" formControlName="gender">Male
+             </label>
+             <label class="radio-inline">
+                <input type="radio" name="gender" value="female" formControlName="gender">Female
+              </label>
+            </div>  
+            <div class="form-group form-check">
+              <input type="checkbox" formControlName="remember" value="remember" class="form-check-input" id="remember" />
+              <label class="form-check-label" for="remember">Remember</label>
+            </div>
+          </div>
+          <div class="card-footer"><button type="submit" name="button" class="btn btn-primary">Submit</button>&nbsp;<button
+              type="reset" class="btn btn-danger" (click)="onClear()">Clear</button></div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6" *ngIf="signupObj">
+      <div class="card">
+        <div class="card-header"> <h3 class="card-title">{{signupResulttitle}}</h3></div>
+        <div class="card-body">
+          <table class="table border" cellspacing="5" border="1" rule="all">
+            <tr>
+              <td>First Name</td>
+              <td>{{signupObj.firstname}}</td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td>{{signupObj.lastname}}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{signupObj.email}}</td>
+            </tr>
+            <tr>
+              <td>Education</td>
+              <td>{{signupObj.education}}</td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>{{signupObj.gender}}</td>
+            </tr>
+            <tr>
+                <td>Remember</td>
+                <td>{{signupObj.remember}}</td>
+              </tr>
+          </table></div>
+      </div>
+     
+      
+    </div>
+  </div>
+</div>
